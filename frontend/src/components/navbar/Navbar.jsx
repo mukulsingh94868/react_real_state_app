@@ -1,5 +1,6 @@
 import { useState } from "react";
 import "./navbar.scss";
+import { Link } from "react-router-dom";
 // import { Link } from "react-router-dom";
 
 const Navbar = () => {
@@ -26,10 +27,10 @@ const Navbar = () => {
               alt=""
             />
             <span>John Doe</span>
-            {/* <Link to="/profile" className="profile">
+            <Link to="/profile" className="profile">
               <div className="notification">3</div>
               <span>Profile</span>
-            </Link> */}
+            </Link>
           </div>
         ) : (
           <>
