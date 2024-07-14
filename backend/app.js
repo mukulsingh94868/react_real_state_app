@@ -4,6 +4,7 @@ import dotenv from "dotenv";
 import express from "express";
 import authRoute from "./routes/auth.route.js";
 import postRoute from "./routes/post.route.js";
+import testRoute from "./routes/test.route.js";
 
 const app = express();
 dotenv.config();
@@ -31,6 +32,7 @@ app.use(cors({ origin: "http://localhost:3000", credentials: true }));
 
 app.use("/api/posts", postRoute);
 app.use("/api/auth", authRoute);
+app.use("/api/test", testRoute);
 
 app.listen(8800, () => {
   console.log("server is running!");
