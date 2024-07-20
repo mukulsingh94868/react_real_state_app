@@ -1,15 +1,12 @@
-import {
-  createBrowserRouter,
-  RouterProvider,
-} from "react-router-dom";
-import './layout.scss';
-import HomePage from './routes/homePage/HomePage';
-import Layout from './routes/layout/Layout';
-import ListPage from './routes/listPage/ListPage';
-import Login from './routes/login/Login';
-import ProfilePage from './routes/profilePage/ProfilePage';
-import Register from './routes/register/Register';
-import SinglePage from './routes/singlePage/SinglePage';
+import { createBrowserRouter, RouterProvider } from "react-router-dom";
+import "./layout.scss";
+import HomePage from "./routes/homePage/HomePage";
+import { Layout, RequireAuth } from "./routes/layout/Layout";
+import ListPage from "./routes/listPage/ListPage";
+import Login from "./routes/login/Login";
+import ProfilePage from "./routes/profilePage/ProfilePage";
+import Register from "./routes/register/Register";
+import SinglePage from "./routes/singlePage/SinglePage";
 
 function App() {
   const router = createBrowserRouter([
@@ -19,34 +16,39 @@ function App() {
       children: [
         {
           path: "/",
-          element: <HomePage />
+          element: <HomePage />,
         },
         {
           path: "/list",
-          element: <ListPage />
+          element: <ListPage />,
         },
         {
           path: "/:id",
-          element: <SinglePage />
+          element: <SinglePage />,
         },
-        {
-          path: "/profile",
-          element: <ProfilePage />
-        },
+
         {
           path: "/login",
-          element: <Login />
+          element: <Login />,
         },
         {
           path: "/register",
-          element: <Register />
-        }
-      ]
-    }
+          element: <Register />,
+        },
+      ],
+    },
+    {
+      path: "/",
+      element: <RequireAuth />,
+      children: [
+        {
+          path: "/profile",
+          element: <ProfilePage />,
+        },
+      ],
+    },
   ]);
-  return (
-    <RouterProvider router={router} />
-  );
+  return <RouterProvider router={router} />;
 }
 
 export default App;
