@@ -1,11 +1,10 @@
 import React, { useContext } from "react";
-import { useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import Chat from "../../components/chat/Chat";
 import List from "../../components/list/List";
 import apiRequest from "../../lib/apiRequest";
 import "./profilePage.scss";
 import { AuthContext } from "../../context/AuthContext";
-
 
 const ProfilePage = () => {
   const navigate = useNavigate();
@@ -26,7 +25,9 @@ const ProfilePage = () => {
         <div className="wrapper">
           <div className="title">
             <h1>User Information</h1>
-            <button>Update Profile</button>
+            <Link to="/profile/update">
+              <button>Update Profile</button>
+            </Link>
           </div>
           <div className="info">
             <span>
@@ -34,10 +35,10 @@ const ProfilePage = () => {
               <img src={currentUser.avatar || "noavatar.jpg"} alt="" />
             </span>
             <span>
-            Username: <b>{currentUser.username}</b>
+              Username: <b>{currentUser.username}</b>
             </span>
             <span>
-            E-mail: <b>{currentUser.email}</b>
+              E-mail: <b>{currentUser.email}</b>
             </span>
 
             <button onClick={handleLogout}>Logout</button>
