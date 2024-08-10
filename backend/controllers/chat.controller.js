@@ -13,7 +13,7 @@ export const getChats = async (req, res) => {
     res.status(200).json(chats);
   } catch (error) {
     console.log("error", error);
-    res.status(500).json({ message: "Failed to get users" });
+    res.status(500).json({ message: "Failed to get chats" });
   }
 };
 
