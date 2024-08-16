@@ -22,14 +22,11 @@ function UploadWidget({ uwConfig, setPublicId, setState }) {
   }, [loaded]);
 
   const initializeCloudinaryWidget = () => {
-    console.log('hello')
     if (loaded) {
-        console.log('world')
       var myWidget = window.cloudinary.createUploadWidget(
         uwConfig,
         (error, result) => {
           if (!error && result && result.event === "success") {
-            console.log("Done! Here is the image info: ", result.info);
             setState((prev) => [...prev, result.info.secure_url]);
           }
         }
