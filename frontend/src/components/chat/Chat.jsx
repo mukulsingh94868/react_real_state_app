@@ -1,5 +1,5 @@
 import React, { useContext, useEffect, useRef, useState } from "react";
-import { format } from "timeago.js";
+// import { format } from "timeago.js";
 import { AuthContext } from "../../context/AuthContext";
 import { SocketContext } from "../../context/SocketContext";
 import apiRequest from "../../lib/apiRequest";
@@ -121,7 +121,7 @@ const Chat = ({ chats }) => {
                 key={message.id}
               >
                 <p>{message.text}</p>
-                <span>{format(message.createdAt)}</span>
+                {/* <span>{format(message.createdAt)}</span> */}
               </div>
             ))}
             <div ref={messageEndRef}></div>
